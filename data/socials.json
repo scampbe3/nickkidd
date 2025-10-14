@@ -1,0 +1,80 @@
+{
+  "facebook": [],
+  "instagram": [],
+  "tiktok": [],
+  "youtube": [],
+  "profiles": {
+    "instagram": [
+      {
+        "url": "https://www.instagram.com/nickckidd/",
+        "label": "@nickckidd",
+        "avatar": "/social/tiktok-nickkvideos1.jpg"
+      },
+      {
+        "url": "https://www.instagram.com/nickkvideos/",
+        "label": "@nickkvideos",
+        "avatar": "/social/instagram_nickkvideos_pfp.jpg"
+      }
+    ],
+    "facebook": [
+      {
+        "url": "https://www.facebook.com/profile.php?id=100094903872941",
+        "label": "Nick Kidd",
+        "avatar": "/social/facebook_pfp.jpg"
+      }
+    ],
+    "tiktok": [
+      {
+        "url": "https://www.tiktok.com/@nickkvideos1",
+        "label": "@nickkvideos1",
+        "avatar": "/social/tiktok-nickkvideos1.jpg"
+      }
+    ],
+    "youtube": [
+      {
+        "url": "https://www.youtube.com/@nickkvideos",
+        "label": "@nickkvideos",
+        "avatar": "/social/tiktok-nickkvideos1.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/@nix_remix",
+        "label": "@nix_remix",
+        "avatar": "/social/youtube-nix-remix.jpg"
+      }
+    ]
+  },
+  "postsByProfile": {
+    "facebook": {
+      "https://www.facebook.com/profile.php?id=100094903872941": [
+        "/social_shots/facebook.png",
+        "/social_shots/facebook-100094903872941-2.png"
+      ]
+    },
+    "tiktok": {
+      "https://www.tiktok.com/@nickkvideos1": [
+        "/social_shots/tiktok-nickkvideos1-1.png",
+        "/social_shots/tiktok-nickkvideos1-2.png"
+      ]
+    },
+    "youtube": {
+      "https://www.youtube.com/@nickkvideos": [
+        "/social_shots/youtube-nickkvideos.png",
+        "/social_shots/youtube-nickkvideos-2.png"
+      ],
+      "https://www.youtube.com/@nix_remix": [
+        "/social_shots/nix_remix.png",
+        "/social_shots/youtube-nix_remix-2.png"
+      ]
+    },
+    "instagram": {
+      "https://www.instagram.com/nickckidd/": [
+        "/social_shots/instagram-nickckidd.png",
+        "/social_shots/instagram-nickckidd-2.png"
+      ],
+      "https://www.instagram.com/nickkvideos/": [
+        "/social_shots/instagram-nickkvideos.png",
+        "/social_shots/instagram-nickkvideos-2.png"
+      ]
+    }
+  }
+}

@@ -1,4 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import "tailwindcss";
+
+
 
 :root {
   --background: #ffffff;
@@ -23,4 +30,59 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* === THEME === */
+:root,
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;          /* page background */
+  --text: #ffffff;        /* default text (also drives border currentColor) */
+  --surface: rgba(0,0,0,.6);   /* card/well background on dark */
+}
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #000000;
+  --surface: rgba(255,255,255,.9);
+}
+
+/* apply to the whole page */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color .2s ease, color .2s ease;
+}
+
+/* semantic helpers (use these instead of hard-coded bg classes) */
+.bg-app     { background-color: var(--bg); }
+.text-app   { color: var(--text); }
+.bg-surface { background-color: var(--surface); }
+
+/* Reserve paint & skip offscreen work */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 400px 300px; /* rough fallback size */
+}
+
+/* Subtle shimmer while image decodes */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.18), rgba(255,255,255,.08));
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 0.75rem; /* match rounded-xl */
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Make inline SVG icons crisp on all DPRs */
+.icon {
+  display: block;
+  shape-rendering: geometricPrecision;
+  vector-effect: non-scaling-stroke;
+  text-rendering: geometricPrecision;
 }
