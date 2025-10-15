@@ -23,14 +23,15 @@ function Well({ children }: { children: ReactNode }) {
   return (
     // <640px: no outer frame at all
     // ≥sm: subtle white frame in light mode, neutral in dark
-    <div
-      className="
-        w-full max-w-full rounded-none border-0 bg-transparent p-0 shadow-none
-        sm:rounded-2xl sm:border sm:border-neutral-200 dark:sm:border-neutral-800
-        sm:bg-white dark:sm:bg-neutral-950/30
-        sm:p-4 sm:shadow-sm
-      "
-    >
+<div
+  className="
+    w-full max-w-full rounded-none border-0 bg-transparent p-0 shadow-none
+    sm:rounded-2xl sm:border sm:border-white dark:sm:border-neutral-800
+    sm:bg-white dark:sm:bg-neutral-950/30
+    sm:p-4 sm:shadow-none
+  "
+>
+
       {/* Inner surface stays rounded at ALL sizes */}
       <div
         className="
