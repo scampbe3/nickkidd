@@ -108,9 +108,9 @@ export default function ProfileCard({
   const src = candidates[index];
 
     return (
-    <a href={url} target="_blank" rel="noreferrer"
-className="block rounded-2xl border overflow-hidden hover:shadow transition bg-surface">      {/* header: replace px/py with sz.header */}
-      <div className={`text-white bg-gradient-to-r ${meta.gradient} flex items-center gap-2 ${sz.header}`}>
+<a href={url} target="_blank" rel="noreferrer"
+className="w-full max-w-full block rounded-2xl border overflow-hidden hover:shadow transition bg-surface">
+<div className={`text-white bg-gradient-to-r ${meta.gradient} flex items-center gap-2 ${sz.header}`}>
         <span className="opacity-90">{meta.icon}</span>
         <span className="text-xs uppercase tracking-wider">Follow on {meta.name}</span>
       </div>

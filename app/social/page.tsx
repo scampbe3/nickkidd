@@ -3,6 +3,8 @@ import data from "@/data/socials.json";
 import ProfileCard from "@/components/ProfileCard";
 import SocialEmbed from "@/components/SocialEmbed";
 
+
+
 const order = ["facebook", "tiktok", "youtube", "instagram"] as const;
 type Platform = typeof order[number];
 
@@ -68,9 +70,9 @@ export default function Page() {
               </span>
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-3">
+<div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3">
               {/* Left: single profile card (large) */}
-              <div className="lg:col-span-1">
+  <div className="w-full max-w-full lg:col-span-1">
                 {profile ? (
                   <ProfileCard
                     platform={platform}
@@ -87,7 +89,7 @@ export default function Page() {
               </div>
 
               {/* Right: two big post wells for this specific profile */}
-              <div className="space-y-6 lg:col-span-2">
+  <div className="w-full max-w-full space-y-6 lg:col-span-2">
                 {posts.length ? (
                   posts.map((url, i) => (
                     <div

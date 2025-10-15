@@ -19,12 +19,13 @@ export default function SocialEmbed({ url }: { url: string }) {
   if (isImageLike(url)) {
     return (
       <img
-        src={url}
-        alt=""
-        className="w-full h-auto rounded-xl border object-cover"
-        loading="lazy"
-        decoding="async"
-      />
+  src={url}
+  alt=""
+  className="w-full max-w-full h-auto rounded-xl border object-cover"
+  loading="lazy"
+  decoding="async"
+/>
+
     );
   }
 
@@ -51,10 +52,18 @@ export default function SocialEmbed({ url }: { url: string }) {
   }
   if (url.includes("facebook.com")) {
     return (
-      <>
-        <div id="fb-root" />
-        <div className="fb-post" data-href={url} data-show-text="true"></div>
-      </>
+<>
+  <div id="fb-root" />
+  <div className="w-full max-w-full overflow-hidden">
+    <div
+      className="fb-post"
+      data-href={url}
+      data-show-text="true"
+      /* let the SDK compute width from the parent */
+    />
+  </div>
+</>
+
     );
   }
   return null;
