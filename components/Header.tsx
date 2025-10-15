@@ -118,7 +118,7 @@ export default function Header() {
   <ThemeToggle inline sizePx={26} />
 
   {/* Row 2+3 on mobile, collapses into a single row on >= sm */}
-<div className="mt-1 sm:mt-4 flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-5">
+<div className="mt-4 sm:mt-1 flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-5">
     {/* Row 2: navigation (right-aligned) */}
 <nav className="order-2 sm:order-none flex items-center gap-4 text-[15px] sm:text-base">
       {links.map((l) => (
