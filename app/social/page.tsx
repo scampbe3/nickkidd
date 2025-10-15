@@ -65,7 +65,7 @@ export default function Page() {
               </h2>
               <span className="text-sm text-neutral-500">
                 {posts.length
-                  ? "Showing latest posts"
+                  ? "Showing latest"
                   : "Showing profile card until posts are added"}
               </span>
             </div>

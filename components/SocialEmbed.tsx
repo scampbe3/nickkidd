@@ -17,28 +17,40 @@ function isImageLike(u: string) {
 }
 
 /** Minimal, consistent well for all embeds/screenshots */
+/** Minimal, responsive well for all embeds/screenshots */
 function Well({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full max-w-full rounded-2xl border bg-neutral-950/30 p-2 sm:p-4">
-      <div className="relative w-full overflow-hidden rounded-xl bg-neutral-900/40">
+    // Mobile: no outer box (no border, no bg, no padding)
+    // ≥ sm: restore your previous framed well
+    <div className="
+      w-full max-w-full
+      rounded-none border-0 bg-transparent p-0
+      sm:rounded-2xl sm:border sm:bg-neutral-950/30 sm:p-4
+    ">
+      {/* Inner surface: white in light mode, neutral in dark; keep the soft rounding */}
+      <div className="
+        relative w-full overflow-hidden rounded-xl
+        bg-white dark:bg-neutral-900/40
+      ">
         {children}
       </div>
     </div>
   );
 }
 
+
 export default function SocialEmbed({ url }: { url: string }) {
   // Local screenshot → just render the image tightly on mobile
   if (isImageLike(url)) {
     return (
       <Well>
-        <img
-          src={url}
-          alt=""
-          className="w-full max-w-full h-auto object-contain sm:object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+<img
+  src={url}
+  alt=""
+  className="block w-full max-w-full h-auto object-contain sm:object-cover"
+  loading="lazy"
+  decoding="async"
+/>
       </Well>
     );
   }
