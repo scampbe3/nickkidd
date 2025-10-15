@@ -100,66 +100,71 @@ export default function Header() {
   return (
     <header>
       <div className="mx-auto max-w-7xl px-3 sm:px-4 py-12 md:py-14">
-        <div className="flex items-start justify-between gap-4">
-          {/* Left: logo + section-heading style title (NOT truncated) */}
-          <div className="flex items-center gap-6 min-w-0">
-            <Link href="/" aria-label="Home" className="text-app"><Logo /></Link>
-            {label ? (
-              <div className="font-serif font-normal tracking-tight text-5xl md:text-6xl lg:text-7xl">
-                {label}
-              </div>
-            ) : null}
-          </div>
-
-         {/* Right: toggle on top; then links; then icons (mobile). Collapses to one row at sm: */}
-<div className="flex flex-col items-end gap-2 sm:gap-3">
-  {/* Row 1: Theme toggle */}
-  <ThemeToggle inline sizePx={26} />
-
-  {/* Row 2+3 on mobile, collapses into a single row on >= sm */}
-  <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-5">
-    {/* Row 2: navigation (right-aligned) */}
-    <nav className="flex items-center gap-4 text-[15px] sm:text-base">
-      {links.map((l) => (
-        <Link
-          key={l.href}
-          href={l.href}
-          className={[
-            "relative",
-            l.active
-              ? "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current"
-              : "hover:opacity-75",
-          ].join(" ")}
-        >
-          {l.text}
-        </Link>
-      ))}
-    </nav>
-
-    {/* Row 3: social icons (right-aligned) */}
-    <div className="flex items-center gap-4">
-      {socials.map(({ href, Icon, label }) => (
-        <a
-          key={label}
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={label}
-          className="rounded hover:opacity-85"
-          title={label}
-        >
-          <Icon
-            className={
-              label === "TikTok"
-                ? "w-[22px] h-[22px] sm:w-[26px] sm:h-[26px]" // slightly smaller TikTok on all sizes
-                : "w-6 h-6 sm:w-7 sm:h-7"
-            }
-          />
-        </a>
-      ))}
-    </div>
-  </div>
+<div className="grid grid-cols-2 grid-rows-[auto_auto] items-start gap-4 sm:flex sm:items-center sm:justify-between">
+{/* row 1, col 1 — Logo (top-left on mobile) */}
+<div className="justify-self-start self-center">
+  <Link href="/" aria-label="Home" className="text-app"><Logo /></Link>
 </div>
+
+{/* row 2, col 1 — Big page title (left) */}
+<div className="col-span-1 row-start-2">
+  {label ? (
+    <div className="font-serif font-normal tracking-tight text-5xl md:text-6xl lg:text-7xl">
+      {label}
+    </div>
+  ) : null}
+</div>
+
+
+   {/* row 1, col 2 — Theme toggle (top-right on mobile) */}
+<div className="justify-self-end self-start sm:order-2">
+  <ThemeToggle inline sizePx={26} />
+</div>
+
+{/* row 2, col 2 — Right side: icons row ABOVE links row (both right-aligned on mobile) */}
+<div className="col-span-1 row-start-2 justify-self-end self-center flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-5">
+  {/* Icons row (first on mobile) */}
+  <div className="flex items-center gap-4">
+    {socials.map(({ href, Icon, label }) => (
+      <a
+        key={label}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={label}
+        className="rounded hover:opacity-85"
+        title={label}
+      >
+        <Icon
+          className={
+            label === "TikTok"
+              ? "w-[22px] h-[22px] sm:w-[26px] sm:h-[26px]" // keep TikTok slightly smaller only
+              : "w-6 h-6 sm:w-7 sm:h-7"
+          }
+        />
+      </a>
+    ))}
+  </div>
+
+  {/* Links row (second on mobile), right-aligned */}
+  <nav className="flex items-center gap-4 text-[15px] sm:text-base">
+    {links.map((l) => (
+      <Link
+        key={l.href}
+        href={l.href}
+        className={[
+          "relative",
+          l.active
+            ? "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current"
+            : "hover:opacity-75",
+        ].join(" ")}
+      >
+        {l.text}
+      </Link>
+    ))}
+  </nav>
+</div>
+
 
         </div>
       </div>
