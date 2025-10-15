@@ -102,14 +102,15 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-3 sm:px-4 py-12 md:py-14">
         <div className="flex items-start justify-between gap-4">
           {/* Left: logo + section-heading style title (NOT truncated) */}
-          <div className="flex items-center gap-6 min-w-0">
-            <Link href="/" aria-label="Home" className="text-app"><Logo /></Link>
-            {label ? (
-              <div className="font-serif font-normal tracking-tight text-5xl md:text-6xl lg:text-7xl">
-                {label}
-              </div>
-            ) : null}
-          </div>
+         <div className="flex flex-col items-start gap-2 min-w-0 sm:flex-row sm:items-center sm:gap-6">
+  <Link href="/" aria-label="Home" className="text-app"><Logo /></Link>
+  {label ? (
+    <div className="mt-2 sm:mt-0 font-serif font-normal tracking-tight text-5xl md:text-6xl lg:text-7xl">
+      {label}
+    </div>
+  ) : null}
+</div>
+
 
          {/* Right: toggle on top; then links; then icons (mobile). Collapses to one row at sm: */}
 <div className="flex flex-col items-end gap-2 sm:gap-3">
