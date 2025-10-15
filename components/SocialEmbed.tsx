@@ -39,7 +39,11 @@ function Well({ children }: { children: ReactNode }) {
           bg-white dark:bg-neutral-900
           border-0 ring-0 shadow-none
         "
-        style={{ WebkitBoxShadow: "none", boxShadow: "none" }}
+        style={{
+          WebkitBoxShadow: "none",
+          boxShadow: "none",
+          backgroundColor: "#ffffff",        // hard white in light mode
+        }}
       >
         {children}
       </div>
