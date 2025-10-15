@@ -34,7 +34,7 @@ export default function ThemeToggle({ inline = false, sizePx = 32 }: { inline?: 
   return (
     <div className={inline ? "flex flex-col items-end" : "fixed top-4 right-4"}>
       <span className="text-[11px] tracking-wide mb-1 opacity-80">
-        {isLight ? "Light Mode" : "Dark Mode"}
+        {isLight ? "Light" : "Dark"}
       </span>
 
       <div style={{ width: sizePx, height: sizePx }} className="relative">
