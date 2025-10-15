@@ -16,34 +16,37 @@ function isImageLike(u: string) {
   return /^\/social_shots\//.test(u) || /\.(png|jpe?g|webp|avif)(\?.*)?$/i.test(u);
 }
 
-/** Minimal, consistent well for all embeds/screenshots */
-/** Minimal, responsive well for all embeds/screenshots */
 /** Minimal, responsive well for all embeds/screenshots */
 function Well({ children }: { children: ReactNode }) {
   return (
-    // <640px: no outer frame at all
-    // ≥sm: subtle white frame in light mode, neutral in dark
-<div
-  className="
-    w-full max-w-full rounded-none border-0 bg-transparent p-0 shadow-none
-    sm:rounded-2xl sm:border sm:border-white dark:sm:border-neutral-800
-    sm:bg-white dark:sm:bg-neutral-950/30
-    sm:p-4 sm:shadow-none
-  "
->
-
-      {/* Inner surface stays rounded at ALL sizes */}
+    // Mobile: NO outer frame at all
+    // ≥ sm: solid white frame in light, neutral in dark – zero shadows
+    <div
+      className="
+        w-full max-w-full p-0 border-0 shadow-none ring-0 outline-none bg-transparent rounded-none
+        sm:p-4
+        sm:rounded-2xl
+        sm:border sm:border-white dark:sm:border-neutral-800
+        sm:bg-white dark:sm:bg-neutral-950
+        sm:shadow-none
+      "
+      style={{ WebkitBoxShadow: "none", boxShadow: "none" }}
+    >
+      {/* Inner card stays rounded at ALL sizes; no borders/rings/shadows */}
       <div
         className="
           relative w-full overflow-hidden rounded-xl
-          bg-white dark:bg-neutral-900/40
+          bg-white dark:bg-neutral-900
+          border-0 ring-0 shadow-none
         "
+        style={{ WebkitBoxShadow: "none", boxShadow: "none" }}
       >
         {children}
       </div>
     </div>
   );
 }
+
 
 
 
