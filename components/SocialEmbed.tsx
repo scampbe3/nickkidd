@@ -21,22 +21,20 @@ function isImageLike(u: string) {
 /** Minimal, responsive well for all embeds/screenshots */
 function Well({ children }: { children: ReactNode }) {
   return (
-    // Mobile ( <640px ): no outer frame at all
-    // ≥ sm: restore a clean white frame in light mode, neutral in dark
+    // <640px: no outer frame at all
+    // ≥sm: subtle white frame in light mode, neutral in dark
     <div
       className="
-        w-full max-w-full
-        border-0 bg-transparent p-0 shadow-none rounded-none
+        w-full max-w-full rounded-none border-0 bg-transparent p-0 shadow-none
         sm:rounded-2xl sm:border sm:border-neutral-200 dark:sm:border-neutral-800
         sm:bg-white dark:sm:bg-neutral-950/30
         sm:p-4 sm:shadow-sm
       "
     >
-      {/* Inner surface; no rounding on mobile to avoid any perceived gap */}
+      {/* Inner surface stays rounded at ALL sizes */}
       <div
         className="
-          relative w-full overflow-hidden
-          rounded-none sm:rounded-xl
+          relative w-full overflow-hidden rounded-xl
           bg-white dark:bg-neutral-900/40
         "
       >
