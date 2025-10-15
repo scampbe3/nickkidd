@@ -18,25 +18,34 @@ function isImageLike(u: string) {
 
 /** Minimal, consistent well for all embeds/screenshots */
 /** Minimal, responsive well for all embeds/screenshots */
+/** Minimal, responsive well for all embeds/screenshots */
 function Well({ children }: { children: ReactNode }) {
   return (
-    // Mobile: no outer box (no border, no bg, no padding)
-    // ≥ sm: restore your previous framed well
-    <div className="
-      w-full max-w-full
-      rounded-none border-0 bg-transparent p-0
-      sm:rounded-2xl sm:border sm:bg-neutral-950/30 sm:p-4
-    ">
-      {/* Inner surface: white in light mode, neutral in dark; keep the soft rounding */}
-      <div className="
-        relative w-full overflow-hidden rounded-xl
-        bg-white dark:bg-neutral-900/40
-      ">
+    // Mobile ( <640px ): no outer frame at all
+    // ≥ sm: restore a clean white frame in light mode, neutral in dark
+    <div
+      className="
+        w-full max-w-full
+        border-0 bg-transparent p-0 shadow-none rounded-none
+        sm:rounded-2xl sm:border sm:border-neutral-200 dark:sm:border-neutral-800
+        sm:bg-white dark:sm:bg-neutral-950/30
+        sm:p-4 sm:shadow-sm
+      "
+    >
+      {/* Inner surface; no rounding on mobile to avoid any perceived gap */}
+      <div
+        className="
+          relative w-full overflow-hidden
+          rounded-none sm:rounded-xl
+          bg-white dark:bg-neutral-900/40
+        "
+      >
         {children}
       </div>
     </div>
   );
 }
+
 
 
 export default function SocialEmbed({ url }: { url: string }) {
