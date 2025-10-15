@@ -111,51 +111,56 @@ export default function Header() {
             ) : null}
           </div>
 
-          {/* Right: toggle above; second row = links + icons kept on ONE row */}
-          <div className="flex flex-col items-end gap-2 sm:gap-3">
-            <ThemeToggle inline sizePx={26} />
-            <div className="flex items-center justify-end gap-3 sm:gap-5 whitespace-nowrap">
-              <nav className="flex items-center gap-3 sm:gap-5 text-[13px] sm:text-base">
-                {links.map(l => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className={[
-                      "relative",
-                      l.active
-                        ? "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current"
-                        : "hover:opacity-75",
-                    ].join(" ")}
-                  >
-                    {l.text}
-                  </Link>
-                ))}
-              </nav>
+         {/* Right: toggle on top; then links; then icons (mobile). Collapses to one row at sm: */}
+<div className="flex flex-col items-end gap-2 sm:gap-3">
+  {/* Row 1: Theme toggle */}
+  <ThemeToggle inline sizePx={26} />
 
-              <div className="flex items-center gap-3 sm:gap-4">
-                {socials.map(({ href, Icon, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={label}
-                    className="rounded hover:opacity-85"
-                    title={label}
-                  >
-                    {/* exact same size across icons; TikTok no longer larger */}
-    <Icon
-      className={
-        label === "TikTok"
-          ? "w-[22px] h-[22px] sm:w-[22px] sm:h-[22px]" // slightly smaller than others
-          : "w-7 h-7 sm:w-7 sm:h-7"                      // unchanged for all other icons
-      }
-    />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+  {/* Row 2+3 on mobile, collapses into a single row on >= sm */}
+  <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-5">
+    {/* Row 2: navigation (right-aligned) */}
+    <nav className="flex items-center gap-4 text-[15px] sm:text-base">
+      {links.map((l) => (
+        <Link
+          key={l.href}
+          href={l.href}
+          className={[
+            "relative",
+            l.active
+              ? "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current"
+              : "hover:opacity-75",
+          ].join(" ")}
+        >
+          {l.text}
+        </Link>
+      ))}
+    </nav>
+
+    {/* Row 3: social icons (right-aligned) */}
+    <div className="flex items-center gap-4">
+      {socials.map(({ href, Icon, label }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={label}
+          className="rounded hover:opacity-85"
+          title={label}
+        >
+          <Icon
+            className={
+              label === "TikTok"
+                ? "w-[22px] h-[22px] sm:w-[26px] sm:h-[26px]" // slightly smaller TikTok on all sizes
+                : "w-6 h-6 sm:w-7 sm:h-7"
+            }
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </header>
