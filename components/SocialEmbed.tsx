@@ -19,29 +19,29 @@ function isImageLike(u: string) {
 /** Minimal, consistent well for all embeds/screenshots */
 function Well({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full max-w-full rounded-2xl border p-1 sm:p-4 leading-none">
-      {children}
+    <div className="w-full max-w-full rounded-2xl border bg-neutral-950/30 p-2 sm:p-4">
+      <div className="relative w-full overflow-hidden rounded-xl bg-neutral-900/40">
+        {children}
+      </div>
     </div>
   );
 }
 
-
 export default function SocialEmbed({ url }: { url: string }) {
   // Local screenshot → just render the image tightly on mobile
-if (isImageLike(url)) {
-  return (
-    <Well>
-      <img
-        src={url}
-        alt=""
-        className="block w-full max-w-full h-auto rounded-xl"
-        loading="lazy"
-        decoding="async"
-      />
-    </Well>
-  );
-}
-
+  if (isImageLike(url)) {
+    return (
+      <Well>
+        <img
+          src={url}
+          alt=""
+          className="w-full max-w-full h-auto object-contain sm:object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </Well>
+    );
+  }
 
   // Load platform SDKs only when needed
   useEffect(() => {
@@ -67,16 +67,14 @@ if (isImageLike(url)) {
   // Instagram
   if (url.includes("instagram.com")) {
     return (
-  <Well>
-    <blockquote
-      className="instagram-media"
-      data-instgrm-permalink={url}
-      data-instgrm-version="14"
-      data-width="100%"
-      style={{ maxWidth: "100%" }}
-    />
-  </Well>
-);
+      <Well>
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink={url}
+          data-instgrm-version="14"
+        />
+      </Well>
+    );
   }
 
   // TikTok
