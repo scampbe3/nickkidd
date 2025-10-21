@@ -72,7 +72,7 @@ export default function Page() {
 
 <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3">
               {/* Left: single profile card (large) */}
-  <div className="w-full max-w-full lg:col-span-1">
+  <div className="w-full max-w-full lg:col-span-1 lg:sticky lg:top-24 lg:self-start">
                 {profile ? (
                   <ProfileCard
                     platform={platform}
